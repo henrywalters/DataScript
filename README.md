@@ -36,6 +36,7 @@ Example:
 Let S = {0,1,2,3,4,5} and F = {0,2,4} then F_c = {1,3,5}.
 ```
 # Usage
+### Declaration
 A data object is declared with
 ```
 headers = ['COL1','COL2','COL3'];
@@ -47,6 +48,7 @@ const data = new Data(data,headers);
 ```
 Currently, not declaring a header is unrecommended, but will soon be fixed to automatically handle lack of one.
 
+### Basic Table Display
 The next thing one might want to do is view their data set in its original state. To do this, one may call
 ```
 var id = 'exampleTable';
@@ -56,6 +58,44 @@ data.raw_table(id,border,style);
 ```
 which will return an html formatted table with id,border, and css parameters.
 
+### Data Filtering
 DataScript posseses two types of filters: header and data filtering. Header filtering controls which columns will be filtered out, where as data filtering controls the individual rows.
+
+To filter headers, simply pass the following method:
+```
+var filters = ['COL1','COL3'];
+var composite = false;
+data.set_header_filters(filters,composite);
+```
+Composite is an optional parameter and by default is false. If composite is set to true, it calculates the composite set (See Mathematical Formulation).
+
+To filter data, one must construct filter object(s) with the following parameters:
+```
+var filters = {
+  HEADER_NAME_OR_INDEX : {
+    'filters' : [FILTER_VALUE1,FILTER_VALUE2,...],
+    'composite' : false,
+    'strict' : false,
+    'condition' : CONDITION,
+    'variables' : VARIABLES
+  },...
+}
+```
+HEADER_NAME_OR_INDEX controls which column of data this filter pertains to.
+Filters is to pass an array of filter values for that column.
+Composite, when true, checks the composite of the filters parameter.
+When Strict is false, value comparisons are not case sensitive.
+Condition and variables allows for a more dynamic filtering system.
+
+### Conditional filtering
+In a filter object, one may define the following conditions with their respective variables:
+```
+
+```
+
+
+
+
+
 
 
