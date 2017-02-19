@@ -57,7 +57,12 @@ var style = 'width:50%;height:50%';
 data.raw_table(id,border,style);
 ```
 which will return an html formatted table with id,border, and css parameters.
-
+### Filter Generation
+It is likely one would like a list of a set of all unique values for filtering in a set of data. One may do this with to the raw data as well as filtered data with the following functions
+```
+data.get_raw_filter_options();
+data.get_filter_options();
+```
 ### Data Filtering
 DataScript posseses two types of filters: header and data filtering. Header filtering controls which columns will be filtered out, where as data filtering controls the individual rows.
 
@@ -103,6 +108,7 @@ Example:
 ```
 var filters = {'COL1' : {'condition':'raw-condition', 'variable': 'cell > 10 && cell < 15'}};
 ```
+
 
 
 
