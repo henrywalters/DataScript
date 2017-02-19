@@ -157,6 +157,59 @@ class Data {
 	set_filters(filters){
 		this._filters = filters;
 	}
+
+	get_raw_filter_options(){
+		var headers = this._raw_headers;
+		var data = this._raw_data;
+
+		var filters = {};
+		if (headers){
+			for (var row in data){
+				for (var i = 0; i < data[row].length; i++){
+					if (!filters.hasOwnProperty(headers[i])){
+						filters[headers[i]] = [];
+					}
+					if (filters[headers[i]].indexOf(data[row][i]) == -1){
+						filters[headers[i]].push(data[row][i]);
+					}
+				}
+			}
+			for (var filter in filters){
+				filters[filter] = filters[filter].sort();
+			}
+			return filters;
+		} 
+		else {
+			console.log('WARNING: headers required for this feature');
+		}
+	}
+	get_filter_options(){
+		var headers = this._headers;
+		var data = this._data;
+
+		var filters = {};
+		if (headers){
+			for (var row in data){
+				for (var i = 0; i < data[row].length; i++){
+					if (!filters.hasOwnProperty(headers[i])){
+						filters[headers[i]] = [];
+					}
+					if (filters[headers[i]].indexOf(data[row][i]) == -1){
+						filters[headers[i]].push(data[row][i]);
+					}
+				}
+			}
+			for (var filter in filters){
+				filters[filter] = filters[filter].sort();
+			}
+			console.log(filters);
+			return filters;
+		} 
+		else {
+			console.log('WARNING: headers required for this feature');
+		}
+	}
+	
 	
 	//Filter Algorithm:
 	//1.) First sieve the data through the header filters getting rid of unneccesary data. 
@@ -283,7 +336,6 @@ class Data {
 				}
 				else {
 					var valid_cell = false;
-					console.log(condition,variables[0],variables[1],variables);
 					switch(condition){
 						case 'range-inclusive':
 							if (variables.length == 2 && variables[0] <= variables[1]){
@@ -333,7 +385,6 @@ class Data {
 						case 'raw-condition':
 							if (eval(variables)){
 								valid_cell = true;
-								console.log(variables);
 							}
 							break;
 						default:
