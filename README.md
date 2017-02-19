@@ -90,9 +90,19 @@ Condition and variables allows for a more dynamic filtering system.
 ### Conditional filtering
 In a filter object, one may define the following conditions with their respective variables:
 ```
-
+'greater-than-exclusive' : One variable,
+'greater-than-inclsuive' : One variable,
+'less-than-exclusive' : One variable,
+'less-than-inclusive' : One variable,
+'range-inclusive' : An array of two sorted numbers,
+'range-exclusive' : An array of two sorted numbers,
+'raw-condition' : a condition
 ```
-
+raw-conditional is special in that you may declare any conditional where 'cell' is the compared value. 
+Example:
+```
+var filters = {'COL1' : {'condition':'raw-condition', 'variable': 'cell > 10 && cell < 15'}};
+```
 
 
 
