@@ -1,5 +1,7 @@
 # DataScript
 A javascript class for handling and filtering a dataset that handles a typical SQL query.
+### Foreword
+It has been brought to my attention there is an existing project called Closure DataScript. The difference between these two projects is Closure Datascript provides a wrapper for MySql queries where this project assumes data is already provided in an array format.
 # Download
 Just <? include 'DataScript.php' ?> ;)
 # Mathematical Formulation
