@@ -87,12 +87,21 @@ var filters = {
     'variables' : VARIABLES
   },...
 }
+
+Where FILTER_VALUE_i = {
+  'value' : 'value_1',
+  'highlight' : true,
+  'color' : #3f3f3f,
+  'type' : true
+}
 ```
 HEADER_NAME_OR_INDEX controls which column of data this filter pertains to.
 Filters is to pass an array of filter values for that column.
 Composite, when true, checks the composite of the filters parameter.
 When Strict is false, value comparisons are not case sensitive.
 Condition and variables allows for a more dynamic filtering system.
+
+Each filter object has the option to be highlighted and if so, is given the respective color parameter. If type is set to false, the filter will not affect the data set, only highlight matching rows.
 
 ### Conditional filtering
 In a filter object, one may define the following conditions with their respective variables:
