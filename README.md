@@ -80,19 +80,19 @@ To filter data, one must construct filter object(s) with the following parameter
 ```
 var filters = {
   HEADER_NAME_OR_INDEX : {
-    'filters' : [FILTER_VALUE1,FILTER_VALUE2,...],
-    'composite' : false,
-    'strict' : false,
+    'filters' : [FILTER_1, FILTER_2, ...],
+    'composite' :BOOLEAN,
+    'strict' : BOOLEAN,
     'condition' : CONDITION,
     'variables' : VARIABLES
   },...
 }
 
-Where FILTER_VALUE_i = {
-  'value' : 'value_1',
-  'highlight' : true,
-  'color' : #3f3f3f,
-  'type' : true
+FILTER_VALUE_i = {
+  'value' : FILTER_VALUE_1,
+  'highlight' : BOOLEAN,
+  'color' : UNICODE COLOR,
+  'type' : BOOLEAN
 }
 ```
 HEADER_NAME_OR_INDEX controls which column of data this filter pertains to.
