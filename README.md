@@ -56,17 +56,20 @@ The next thing one might want to do is view their data set in its original state
 var id = 'exampleTable';
 var border = '1';
 var style = 'width:50%;height:50%';
-data.raw_table(id,border,style);
+var filterBtn = false;
 var domEvent = {
   'event' : 'onclick',
   'function' : 'showRow',
   'variables': [0,1,2],
   'cells': ['ALL']
 }
+data.table(id,domEvent, filterBtn, border, style);
 ```
 which will return an html formatted table with id,border, and css parameters.
 
 adding a dom event parameter allows one to add html events to the data table. If the event is triggered on the denoted cells, the function will be called passing all of the variables corresponding to index of the row.
+
+filterBtn adds a button to the header elements.
 ### Filter Generation
 It is likely one would like a list of a set of all unique values for filtering in a set of data. One may do this with to the raw data as well as filtered data with the following functions
 ```
